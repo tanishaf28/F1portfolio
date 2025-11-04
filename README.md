@@ -1,6 +1,6 @@
 # F1 themed Racing Portfolio
-A compact, racer-themed portfolio built with Vite, React, and Tailwind. Designed for speed, contrast, and easy customization: Ferrari-inspired color system, neon accents, carbon textures, and optional racer headings.
-
+A compact, racer-themed portfolio built with Vite, React, and Tailwind. Designed for speed, contrast, and easy customization: Ferrari-inspired color system, neon accents and carbon textures.
+Check the webpage here: https://f1portfolio.vercel.app/
 ---
 ## Tech stack
 
