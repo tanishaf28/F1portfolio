@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Ferrari Racing Color System */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Ferrari Red - Primary Brand Color */
+    --primary: 0 100% 43%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Dark Racing Red */
+    --secondary: 0 80% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Metallic Chrome */
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Neon Red Accent */
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 18%;
+    --ring: 0 100% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Ferrari Racing Tokens */
+    --ferrari-red: 0 100% 43%;
+    --neon-red: 0 100% 50%;
+    --dark-red: 0 80% 25%;
+    --carbon-black: 0 0% 8%;
+    --metallic-silver: 0 0% 75%;
+    --racing-yellow: 45 100% 50%;
+    
+    /* Gradients */
+    --gradient-ferrari: linear-gradient(135deg, hsl(var(--ferrari-red)) 0%, hsl(var(--dark-red)) 100%);
+    --gradient-metallic: linear-gradient(180deg, hsl(var(--metallic-silver)) 0%, hsl(var(--muted)) 100%);
+    --gradient-neon: linear-gradient(90deg, hsl(var(--neon-red)) 0%, hsl(var(--ferrari-red)) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 20px hsl(var(--neon-red) / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--neon-red) / 0.3);
+    --shadow-deep: 0 10px 40px rgba(0, 0, 0, 0.5);
+    
+    /* Animations */
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Rajdhani', 'Orbitron', sans-serif;
+  }
+  
+  /* Custom cursor styles */
+  body.racing-cursor {
+    cursor: none;
+  }
+}
+
+/* Racing Typography */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* Neon Glow Effect */
+.neon-glow {
+  text-shadow: 
+    0 0 10px hsl(var(--neon-red) / 0.8),
+    0 0 20px hsl(var(--neon-red) / 0.6),
+    0 0 30px hsl(var(--neon-red) / 0.4),
+    0 0 40px hsl(var(--neon-red) / 0.2);
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41%, 43% { opacity: 0.8; }
+  45%, 47% { opacity: 1; }
+}
+
+/* Speed Lines Animation */
+@keyframes speedLines {
+  0% { transform: translateX(0) scaleX(1); opacity: 1; }
+  100% { transform: translateX(-100px) scaleX(1.5); opacity: 0; }
+}
+
+/* Car Drive Animation */
+@keyframes driveCar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+/* Checkered Flag Animation */
+@keyframes checkeredFlag {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Heat Distortion */
+@keyframes heatDistortion {
+  0%, 100% { filter: blur(0px); transform: scale(1); }
+  50% { filter: blur(1px); transform: scale(1.02); }
+}
+
+/* Gauge Needle Animation */
+@keyframes gaugeNeedle {
+  0% { transform: rotate(-90deg); }
+  100% { transform: rotate(90deg); }
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px hsl(var(--neon-red) / 0.5); }
+  50% { box-shadow: 0 0 20px hsl(var(--neon-red) / 0.8), 0 0 30px hsl(var(--neon-red) / 0.4); }
+}
+
+/* Parallax Layers */
+.parallax {
+  transition: transform 0.1s ease-out;
+}
+
+/* Carbon Fiber Pattern */
+.carbon-fiber {
+  background-image: 
+    linear-gradient(45deg, rgba(0,0,0,0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0,0,0,0.2) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.2) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.2) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
